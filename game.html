@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="game.css">
+        <canvas id="canvas" width= "400" height = "400" style = "border:5px solid #0000ff"></canvas>
+	</head>
+	<body>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+      var canvas = document.getElementById("canvas");
+       var ctx = canvas.getContext("2d");
+       ctx.fillRect(0,0,20,20);
+
+       var score = 0;
+
+        var coord = 0;
+
+        var coordx = 0;
+
+        var end = false;
+
+
+
+        var c1 = 200;
+        var c2 = 390;
+        function game() {
+            ctx.clearRect(0,0,400,400);
+            ctx.fillRect(c1,c2,30,30);
+            ctx.fillRect(coordx, coord, 20, 20);
+        document.onkeydown = function(a){
+            switch(a.keyCode){
+            case 37: c1 -=40;
+            case 39: c1 +=20;
+            }
+        }
+        if(end == false){
+            coord += 8;
+        }
+        if(end == true){
+            coord = 0;
+            coordx = Math.floor(Math.random()*399);
+        }
+        if(coord >= 370){
+            end = true;
+        }
+        if(coord == 0){
+            end = false;
+        }
+        if(c2 <= coord + 20 && c1 <= coordx && coordx <= c1 + 30 || (c1 + 20 <= coordx+30 && c1+20 >= coordx && c2 <= coord + 20)){
+            coord = 0;
+            coordx = Math.floor(Math.random()*399);
+            score ++;
+        }
+        }
+
+        var interID = setInterval(game, 30);
+        var tUp = function () {
+            alert("Your score is " + score);
+            clearInterval(interID);
+        }
+        setTimeout(tUp, 30000);
+     
+		   
+		
+
+    </script>
+    		<br>
+    		<br>
+    		<a href = "https://deeppony72.qoom.space/~/Neo_Hacks_Submission/game" class = "w3-button w3-yellow"> Play Again </a>
+			<p> ________________________</p>
+			<a href="https://awesomeufo.qoom.space/~/Neo_Hacks_Submission/Main" class = "w3-button w3-yellow">Back to Home</a>
+        </body>
+
+</html>

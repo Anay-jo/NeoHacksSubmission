@@ -1,0 +1,7 @@
+body{
+    text-align: center;
+}
+#myCanvas{
+    width: 750px;
+    height: 375px;
+}

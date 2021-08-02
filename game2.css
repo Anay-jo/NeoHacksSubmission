@@ -1,0 +1,9 @@
+body{
+    text-align: center;
+}
+#myCanvas{
+    margin: auto;
+    width: 750px;
+    height: 375px;
+    background-color: blue ;
+}
